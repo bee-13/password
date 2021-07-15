@@ -2,5 +2,5 @@
 
 ## Created a functioning password generator that allows for upper and lowecase letters, numbers, and symbols per users request.
 
-#![](assets/img/password-generator.png)
+#![](assets/password-generator)
 
