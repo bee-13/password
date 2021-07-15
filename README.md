@@ -4,3 +4,4 @@
 
 ![](assets/password-gen.png)
 
+https://bee-13.github.io/password-generator/
