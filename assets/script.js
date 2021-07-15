@@ -8,6 +8,11 @@ var password_symbolEl = confirm("Do you wnat symbol charcaters (@, #, *, etc...)
 var password_numbersEl = confirm("Do you wnat numbers (0-9)");
 var generate_password = document.getElementById('generate');
 
+//Check that lenght is less than 7 or 0
+while(password_lengthEl < 8 || password_lengthEl > 128){
+  password_lengthEl = prompt("Your password must have a minimum of 8 and a maximum of 128 characters");
+}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
