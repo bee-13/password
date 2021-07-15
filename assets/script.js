@@ -1,5 +1,5 @@
 // DOM Elements
-var displayPass = document.getElementById('display'); //display final password
+var displayPass = document.getElementById('password'); //display final password
 
 var password_lengthEl = prompt("How many characters is your password going to be?");
 var password_lowercaseEl = confirm("Do you wnat lowercase characters");
@@ -31,7 +31,7 @@ generate_password.addEventListener("click", function() {
   var passNum = password_numbersEl;
 
   //displays password into the textbox
-  displayPass.innerText = generatePassword(passLower, passUpper , passSymbol, passNum, length);
+  displayPass.placeholder = generatePassword(passLower, passUpper , passSymbol, passNum, length);
 });
 
 //generate password functions
