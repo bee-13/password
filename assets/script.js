@@ -13,6 +13,26 @@ while(password_lengthEl < 8 || password_lengthEl > 128){
   password_lengthEl = prompt("Your password must have a minimum of 8 and a maximum of 128 characters");
 }
 
+//put all the functions in an object
+var randomFunction = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbols
+};
+
+//when button is clicked  
+generate_password.addEventListener("click", function() {
+  //gets all values
+  var length = parseInt(password_lengthEl.valueOf());
+  var passLower = password_lowercaseEl;
+  var passUpper = password_uppercaseEl;
+  var passSymbol = password_symbolEl;
+  var passNum = password_numbersEl;
+
+  //displays password into the textbox
+  displayPass.innerText = generatePassword(passLower, passUpper , passSymbol, passNum, length);
+});
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
