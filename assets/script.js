@@ -18,7 +18,7 @@ var randomFunction = {
   lower: getRandomLower,
   upper: getRandomUpper,
   number: getRandomNumber,
-  symbol: getRandomSymbols
+  symbol: getRandomSymbol
 };
 
 //when button is clicked  
@@ -34,6 +34,43 @@ generate_password.addEventListener("click", function() {
   displayPass.innerText = generatePassword(passLower, passUpper , passSymbol, passNum, length);
 });
 
+//generate password functions
+function generatePassword(lower, upper, symbol, number, length) {
+  // 1. Initalize password variable
+  // 2. filter out which DOM element is false
+  // 3. loop over length, then call generator function for each type
+  // 4. add final password varibale to variable and return
+
+  var generatedPassword = '';
+
+  var typesCount = lower + upper + symbol + number;// true = 1 so if true then add by 1
+
+  //console.log('typeCount : ', typesCount);
+
+  //array of object that has lower, upper, etc... as the keys
+  var typesArr = [{ lower }, { upper }, { symbol }, { number }].filter
+  (
+      item => Object.values(item)[0] // filters if element is not true
+  );
+
+  if(typesCount === 0) { //return nothing if nothing is true
+      return '';
+  }
+
+  for (var i = 0; i < length; i+= typesCount) {
+      typesArr.forEach(type => {
+          var funcName = Object.keys(type)[0]//gets first value to get key
+          //console.log('funcName: ', funcName);
+
+          generatedPassword += randomFunction[funcName]();//depending on key name 
+      });                                                 //(ex. lower, upper, etc... it will call specific functions from the object randomFunction)
+  }
+
+  var finalPassword = generatedPassword.slice(0, length);// .slice removes values from 
+                                                          //variable from the beginning till its length
+                                                           // puts final password into variable
+  return finalPassword;
+}                                                
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
